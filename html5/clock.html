@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.clock{
+				width: 200px;height: 200px;
+				margin:auto;
+				border: 5px solid palevioletred;
+				background: radial-gradient(#fff,pink);
+				border-radius: 50%;box-shadow: 0 0 5px #000;
+				position: fixed;left: 0;right: 0;top: 0;bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			
+		</div>
+	</body>
+	<script>
+		window.onload=function(){
+			var clock=document.querySelector(".clock");
+			createMark();
+			var times=new Date();
+			var hours=times.getHours();
+			var min=times.getMinutes();
+			var sec=times.getSeconds();
+			
+			//传值
+			var h=createPointer(2,50,"#666",hours*30+min*6/12);
+			var m=createPointer(2,75,"#666",min*6);
+			var s=createPointer(1,90,"teal",sec*6);
+			
+			setInterval(function(){
+				var times=new Date();
+				var hours=times.getHours();
+				var min=times.getMinutes();
+				var sec=times.getSeconds();
+				//每秒变化角度
+				h.style.transform="rotate("+(hours*30+min*6/12)+"deg)";
+				m.style.transform="rotate("+min*6+"deg)";
+				s.style.transform="rotate("+sec*6+"deg)";
+			},1000)
+			function createMark(){
+				var widths,heights;
+				for(var i=0;i<60;i++){
+					if(i%5==0){
+						widths=6;
+						heights=6;
+					}else{
+						widths=3;
+						heights=3;
+					}
+					var div=document.createElement("div");
+					div.style.cssText="width:"+widths+"px;height:"+heights+"px;background: #000;position: absolute;left:"+(200-widths)/2+"px ;top: 0;border-radius: 50%;"
+					div.style.transform="rotate("+i*6+"deg)";
+					div.style.transformOrigin="center 100px";
+					clock.appendChild(div);
+				}
+			}
+			//时针分针秒针
+			function createPointer(w,h,c,a){
+				var div=document.createElement("div");
+				var lefts=(200-w)/2;
+				var tops=200/2-h;
+				div.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position: absolute;left:"+lefts+"px ;top:"+tops+"px;";
+				div.style.transform="rotate("+a+"deg)";
+				div.style.transformOrigin="center bottom";
+				clock.appendChild(div);
+				return div;
+			}
+		}
+	</script>
+</html>

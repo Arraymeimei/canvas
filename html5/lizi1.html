@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>粒子动画</title>
+	</head>
+	<style>
+		canvas{
+			background: #DCDCDC;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var canvas=document.getElementsByTagName("canvas")[0];
+			var cobj=canvas.getContext("2d");
+			var x=0,y=0;
+			function arc(){
+				this.x=x;
+				this.y=y;
+				this.r=5;
+				this.speedx=(10*Math.random()-5);
+				this.speedy=-(4+2*Math.random());
+				this.width=20;
+				this.height=20;
+				this.zhongli=0.5;
+this.color="rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")";
+			}
+				arc.prototype={
+					draw:function(){
+						this.cobj.save();
+						this.cobj.translate(this.x,this.y);
+						this.cobj.fillRect(0,0,this.width,this.height);
+						this.cobj.restore();
+					},
+					update:function(){
+						this.x+=this.speedx;
+						this.speedy+=this.zhongli;
+						this.y+=this.speedy;
+					},
+					arc:function(){
+						cobj.save();
+						cobj.beginPath();
+						cobj.translate(this.x,this.y);
+						cobj.fillStyle=this.color;
+						cobj.arc(0,0,this.r*Math.random(),0,2*Math.PI);
+						cobj.fill();
+						cobj.restore();
+					}
+					
+				}
+				var arr=[];
+				canvas.onmousemove=function(e){
+					for(var i=0;i<arr.length;i++){
+						x=e.offsetX;
+						y=e.offsetY;
+					}
+				}
+				setInterval(function(){
+					cobj.clearRect(0,0,canvas.width,canvas.height);
+					var circle=new arc();
+					arr.push(circle);
+					for(var i=0;i<arr.length;i++){
+						arr[i].arc();
+						arr[i].update();
+						if(arr.length>100){
+							arr.shift();
+						}
+					}
+					
+				},50)
+				
+			}
+		
+	</script>
+	<body>
+		<canvas id="" width="500" height="500"></canvas>
+	</body>
+</html>

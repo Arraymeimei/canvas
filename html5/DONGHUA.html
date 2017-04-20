@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--某个元素的某个属性连续不断的做运动-->
+	<style>
+		/*关键帧动画  只需要指定关键点*/
+		/*div{
+			position: absolute;left: 0;top: 0;bottom: 0;right: 0;
+			margin: auto;
+			
+			background: hotpink;
+			/*border: 1px solid #666;*/
+			/*width: 0px;height: 0px;*/
+			/*animation: demo 5s linear;*/
+			/*animation-duration: 1s;
+			animation-name: demo;
+			animation-timing-function: ease;*/
+			/*循环次数*/
+			/*animation-iteration-count: infinite;*/
+			/*是否反向*/
+			/*animation-direction: alternate;*/
+			/*保留状态*/
+			/*保留完成时状态 both forwards   保留初始状态 backwards*/
+			/*animation-fill-mode: backwards;*/
+			/*暂停*/
+			/*animation-play-state: paused;*/
+			/*animation: demo 1s linear 5ms infinite alternate;*/
+		/*}*/
+		
+		.box1{
+			border: 1px solid hotpink;border-radius: 50%;
+			width: 40px;height: 40px;margin:10px auto;
+			/*left: 0;top: 0;bottom: 0;right: 0;*/
+			/*position: absolute;*/
+			
+		}
+
+		.box3{
+			background: royalblue;
+			width: 5px;height: 5px;
+			/*position: absolute;*/
+			margin:50px auto;border-radius: 50%;
+			animation: demo 2s linear 50ms infinite;
+			transform-origin: -10px -10px;
+		}
+		@keyframes demo{
+			0%{
+				/*width: 1px;height: 1px;*/
+				border-radius: 50%;
+				transform: rotate(0deg);
+			}
+
+			100%{
+				border-radius: 50%;
+				transform: rotate(180deg);
+			}
+		}
+
+	</style>
+	<body>
+		<div class="box1">
+			<div class="box3"></div>
+		</div>
+
+		
+	</body>
+	<script type="text/javascript">
+		newx=x*cos(a)-y*sin(a);
+		newy=x*sin(a)+y*cos(a);
+	</script>
+</html>

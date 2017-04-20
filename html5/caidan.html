@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		.menus .son{
+			perspective: 800px;
+			transform-origin: top;
+			transform: rotateX(90deg);
+		}
+		.menus{
+			width: 100px;height: 40px;
+			background: #666;
+			margin-bottom: 5px;
+		}
+		.menus a,.menu a{
+			color: #fff;line-height: 40px;text-align: center;
+			text-decoration: none;
+		}
+		.menus a{
+			width: 100%;height: 100%;
+			background: #888;display: block;margin-bottom: 5px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="menus">
+			<a href="javascript:;">苹果菜单</a>
+			<div class="menu">
+				<div class="son">
+					<a href="javascript:;">菜单一</a>
+						<div class="son">
+							<a href="javascript:;">菜单二</a>
+								<div class="son">
+									<a href="javascript:;">菜单三</a>
+									<div class="son">
+										<a href="javascript:;">菜单四</a>
+										<div class="son">
+											<a href="javascript:;">菜单五</a>
+											<div class="son">
+												<a href="javascript:;">菜单六</a>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var menus=document.querySelector(".menus");
+		var son=document.querySelectorAll(".son");
+		console.log(son)
+		menus.onmouseover=function(){
+			for(var i=0;i<son.length;i++){
+				son[i].style.transition="transform 1s linear "+0.2*i+"s";
+				son[i].style.transform="rotateX(0deg)"
+				
+			}
+		}
+		menus.onmouseout=function(){
+			for(var i=0;i<son.length;i++){
+				son[i].style.transition="transform 1s linear "+(1.2-(0.2*i))+"s";
+				son[i].style.transform="rotateX(90deg)"
+				
+			}
+		}
+	</script>
+</html>

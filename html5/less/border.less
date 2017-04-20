@@ -1,0 +1,96 @@
+//非常简单的语言 用 @ 符号定义变量 用 ：赋值
+//css编程思想过程化->css3以模块化的方式进行升级
+/*
+移动端优先
+渐进增强
+优雅降级
+1.打好理论基础
+2.进入应用
+
+1.定义变量
+2.函数
+3.条件语句
+4.循环语句
+5.混合式语法
+
+
+
+*/
+//
+//div{
+//  & img{
+//
+//  }
+//  & span{
+//
+//  }
+//  &
+//  & a{  //css3新增的选择器
+//
+//  }
+//}
+//.two{
+//  &:before,&:after{
+//    content: "";
+//    clear: both;
+//    display: block;
+//  }
+//}
+//
+//@color:pink;
+//div{
+//  background: @color;
+//  color: @color;
+//}
+//less定义函数
+/*加前缀
+1.表示先进性
+火狐  -moz-  谷歌  -webkit-  IE   -ms-    ios  -o-
+2.表示并不通用，算法优秀，测试版本
+*/
+//div{
+//  width:200px;height: 200px;
+//  border:@color solid 1px;
+//  border-image-source: url(../1.jpg);
+//  border-image-width: 1px;
+//  border-image-slice: 10% 10% 10% 10%;
+//  border-image-repeat: round;
+//  border-image-outset: 30px;
+//}
+//.one{
+//  width: 100px;height: 100px;
+//  border: 1px solid @color;
+//.raduis(10px,10px,20px,50px);
+//box-shadow: 0 0 20px #666;
+//.shadow(outset);
+//x轴偏移 y轴偏移 虚化程度 颜色  inset 内阴影
+//}
+//.raduis(@num1,@num2,@num3,@num4){
+//  -moz-border-radius:@arguments;
+//  -webkit-border-radius:@arguments;
+//  -ms-border-radius:@arguments;
+//  -o-border-radius:@arguments;
+//  border-radius: @arguments;
+//}
+//.shadow(@type,@x:0,@y:0,@b:20px,@c:#666) when (@type=outset){
+//  -webkit-box-shadow: @x @y @b @c;
+//  -moz-box-shadow: @x @y @b @c;
+//  -ms-box-shadow: @x @y @b @c;
+//  -o-box-shadow: @x @y @b @c;
+//  box-shadow: @x @y @b @c;
+//}
+//.shadow(@type,@x:0,@y:0,@b:20px,@c:#666) when (@type=inset){
+//  -webkit-box-shadow: @x @y @b @c @type;
+//  -moz-box-shadow: @x @y @b @c @type;
+//  -ms-box-shadow: @x @y @b @c @type;
+//  -o-box-shadow: @x @y @b @c @type;
+//  box-shadow: @x @y @b @c @type;
+//}
+//
+//.for(@i:0) when (@i<13){
+//  div@{i}{
+//    width: @i/12*100%;
+//  }
+//  .for(@i:@i+1);
+//}
+//.for();

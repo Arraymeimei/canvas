@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;padding: 0;
+			list-style: none;
+			}
+		/*小屏*/
+				/*.box{
+					width: 600px;
+					height: 400px;
+					border: 1px solid #000;
+					margin: 10px auto;
+				}
+				.left{
+					width: 600px;
+					height: 400px;
+					float: left;
+				}
+				.box1{
+					width: 600px;
+					height: 200px;
+					background-color: antiquewhite;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+					float: left;
+				}
+				.box2{
+					width: 300px;
+					height: 200px;
+					background-color: aquamarine;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+					float: left;
+				}
+				.left div:nth-child(4){
+					display: none;
+				}
+				.right{
+					display: none;
+				}
+			/*中屏*/
+			/*@media screen and (min-width:900px ) {
+				.box{
+					width: 900px;
+					height: 400px;
+					border: 1px solid #000;
+					margin: 10px auto;
+					}
+				.left{
+					width: 900px;
+					height: 400px;
+					float: left;
+					overflow: hidden;
+				}
+				.right{
+					width: 300px;
+					height: 400px;
+					float: left;
+				}*/
+				/*.box1{
+					width: 600px;
+					height: 200px;
+					background-color: antiquewhite;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+				.box2{
+					width: 300px;
+					height: 200px;
+					background-color: aquamarine;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+				.box3{
+					width: 300px;
+					height: 50px;
+					background-color: aliceblue;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+				.box4{
+					width: 300px;
+					height: 150px;
+					background-color: #FAEBD7;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}*/
+				/*.right{
+					display: none;
+				}
+				.left div:nth-child(4){
+					display: block;
+				}
+			}*/
+			/*大屏*/
+			/*@media screen and (min-width:1200px ) {
+				.right{
+					display: block;
+				}
+				.left div:nth-child(4){
+					display: block;
+				}
+				.box{
+					width: 1200px;
+					height: 400px;
+					border: 1px solid #000;
+					margin: 10px auto;
+					}
+				.left{
+					width: 900px;
+					height: 400px;
+					float: left;
+				}
+				.right{
+					width: 300px;
+					height: 400px;
+					float: left;
+				}*/
+				.box1{
+					height: 200px;
+					background-color: antiquewhite;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+				.box2{
+					height: 200px;
+					background-color: aquamarine;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+				.box3{
+					height: 50px;
+					background-color: aliceblue;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+				.box4{
+					height: 150px;
+					background-color: #FAEBD7;
+					float: left;box-sizing: border-box;
+					border: 1px solid #000;
+				}
+			/*}*/
+			/*
+			 * 12栅格化
+			 */
+			
+			
+			/*
+			 定义小屏类名
+			 */
+			.box{
+				width: 600px;
+				margin: 10px auto;
+			}
+			.col-s-1{
+				width: 8.333333%;
+				float: left;
+			}
+			.col-s-2{
+				width: 16.666667%;
+				float: left;
+			}
+			.col-s-3{
+				width: 25%;
+				float: left;
+			}
+			.col-s-4{
+				width: 33.333333%;
+				float: left;
+			}
+			.col-s-5{
+				width: 41.666667%;
+				float: left;
+			}
+			.col-s-6{
+				width: 50%;
+				float: left;
+			}
+			.col-s-7{
+				width: 58.333333%;
+				float: left;
+			}
+			.col-s-8{
+				width: 66.666667%;
+				float: left;
+			}
+			.col-s-9{
+				width: 75%;
+				float: left;
+			}
+			.col-s-10{
+				width: 83.333333%;
+				float: left;
+			}
+			.col-s-11{
+				width: 91.666667%;
+				float: left;
+			}
+			.col-s-12{
+				width: 100%;
+				float: left;
+
+			.col-m-hide{
+				display: none;
+			}
+			.col-s-hide{
+				display: none;
+			}
+			.col-l-hide{
+				display: none;
+			}
+			/*
+			 中屏
+			 */
+			@media screen and (min-width: 900px) {
+			.box{
+				width: 900px;
+				margin: 10px auto;
+			}
+			.col-m-hide{
+				display: none;
+			}
+			.col-s-hide{
+				display: block;
+			}
+			.col-l-hide{
+				display: none;
+			}
+				.col-m-1{
+					width: 8.333333%;
+					float: left;
+				}
+				.col-m-2{
+					width: 16.666667%;
+					float: left;
+				}
+				.col-m-3{
+					width: 25%;
+					float: left;
+				}
+				.col-m-4{
+					width: 33.333333%;
+					float: left;
+				}
+				.col-m-5{
+					width: 41.666667%;
+					float: left;
+				}
+				.col-m-6{
+					width: 50%;
+					float: left;
+				}
+				.col-m-7{
+					width: 58.333333%;
+					float: left;
+				}
+				.col-m-8{
+					width: 66.666667%;
+					float: left;
+				}
+				.col-m-9{
+					width: 75%;
+					float: left;
+				}
+				.col-m-10{
+					width: 83.333333%;
+					float: left;
+				}
+				.col-m-11{
+					width: 91.666667%;
+					float: left;
+				}
+				.col-m-12{
+					width: 100%;
+					float: left;
+				}
+			}
+			/*
+			 大屏
+			 */
+			@media screen and (min-width: 1200px) {
+				.box{
+					width: 1200px;
+					margin: 10px auto;
+				}
+				.col-s-hide{
+					display: block;
+				}
+				.col-m-hide{
+					display: block;
+				}
+				.col-l-hide{
+					/*display: none;*/
+				}
+				.col-m-1{
+					width: 8.333333%;
+					float: left;
+				}
+				.col-l-2{
+					width: 16.666667%;
+					float: left;
+				}
+				.col-l-3{
+					width: 25%;
+					float: left;
+				}
+				.col-l-4{
+					width: 33.333333%;
+					float: left;
+				}
+				.col-l-5{
+					width: 41.666667%;
+					float: left;
+				}
+				.col-l-6{
+					width: 50%;
+					float: left;
+				}
+				.col-l-7{
+					width: 58.333333%;
+					float: left;
+				}
+				.col-l-8{
+					width: 66.666667%;
+					float: left;
+				}
+				.col-l-9{
+					width: 75%;
+					float: left;
+				}
+				.col-l-10{
+					width: 83.333333%;
+					float: left;
+				}
+				.col-l-11{
+					width: 91.666667%;
+					float: left;
+				}
+				.col-l-12{
+					width: 100%;
+					float: left;
+				}
+			}
+			
+			
+			/*less  能够以编程的方式编写CSS语言
+			 Less是一门css预处理语言，它扩展了css语言，增加了变量，Mixin,函数等特性，使css更容易维护和扩展。 Less可以运行在Node或浏览器端
+			 基于Nodejs运行环境的语言*/
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left col-l-9 col-m-12">
+				<div class="box1 col-l-9 col-m-9 col-s-12">1</div>
+				<div class="box2 col-l-3 col-m-3 col-s-6">2</div>
+				<div class="box2 col-l-3 col-m-3 col-s-6">3</div>
+				<div class="box1 col-l-9 col-m-9 col-s-hide">4</div>
+			</div>
+			<div class="right col-l-3 col-m-hide">
+				<div class="box3 col-l-12 col-m-hide col-s-hide">5</div>
+				<div class="box4 col-l-12 col-m-hide col-s-hide">6</div>
+				<div class="box3 col-l-12 col-m-hide col-s-hide">7</div>
+				<div class="box4 col-l-12 col-m-hide col-s-hide">8</div>
+			</div>
+			
+		</div>
+	</body>
+</html>

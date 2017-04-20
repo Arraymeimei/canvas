@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://E:/Apple/.idea/Apple.iml" filepath="E:/Apple/.idea/Apple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/html5.iml" filepath="$PROJECT_DIR$/.idea/html5.iml" />
+    </modules>
+  </component>
+</project>

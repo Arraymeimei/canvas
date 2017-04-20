@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			 body{
+			 	box-sizing: border-box;
+			 }
+			 .bigbox{
+            	width:533px;height:300px;
+            	margin:auto;
+            	position: fixed;
+            	left:0;top:0;right:0;bottom: 0;
+            	/*border:1px solid red;*/
+        	}
+        	.bigbox div{
+        		box-sizing: border-box;
+        	}
+		</style>
+	</head>
+	<body>
+		<div class="bigbox"></div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var num=20;
+//			var widths=533;
+			var bigbox=document.querySelector(".bigbox");
+			var widths=parseInt(getComputedStyle(bigbox,null).width);
+			var heights=parseInt(getComputedStyle(bigbox,null).height);
+//			var heights=300;
+			var arr=[];
+			var bigbox=document.querySelector(".bigbox")
+			//创建场景
+			for(var i=0;i<num;i++){
+				var scent=document.createElement("div");
+				scent.style.cssText="width:"+widths+"px;height:"+heights/num+"px;perspective: 4800px;"
+				//创建盒子
+				var box=document.createElement("div");
+				box.style.cssText="width: 100%;height: 100%;transform-style: preserve-3d;position: relative;transition: transform 2s linear "+0.2*i+"s;transform-origin:center center "+(-widths/2)+"px;"
+				
+				//创建六个面
+				for(var j=0;j<6;j++){
+					var panel=document.createElement("div");
+					panel.style.cssText="position:absolute;left:0;top:0;";
+					if(j==0){
+						//上
+						panel.style.width=widths+"px";
+						panel.style.height=widths+"px";
+						panel.style.transformOrigin="top";
+						panel.style.transform="rotateX(-90deg)";
+					}else if(j==1){
+						//左
+						panel.style.width="100%";
+						panel.style.height="100%";
+						panel.style.transformOrigin="left";
+						panel.style.transform="rotateY(90deg)";
+						panel.style.background="url(img/b1.jpg) no-repeat";
+						panel.style.backgroundPositionX=0;
+						panel.style.backgroundPositionY=-(heights/num)*i+"px";
+					}else if(j==2){
+						//下
+						panel.style.width=widths+"px";
+						panel.style.height=widths+"px";
+						panel.style.bottom=0;
+						panel.style.transformOrigin="top";
+						panel.style.transform="rotateX(-90deg)";
+						panel.style.background="yellow ";
+					}else if(j==3){
+						//右
+						panel.style.width="100%";
+						panel.style.height="100%";
+						panel.style.transformOrigin="right";
+						panel.style.transform="rotateY(-90deg)";
+						panel.style.background="pink";
+						panel.style.background="url(img/b2.jpg) no-repeat";
+						panel.style.backgroundPositionX=0;
+						panel.style.backgroundPositionY=-(heights/num)*i+"px";
+					}else if(j==4){
+						//前
+						panel.style.width="100%";
+						panel.style.height="100%";
+//						panel.style.background="green";
+//						panel.style.transform="rotateY(0deg)";
+						panel.style.background="url(img/b3.jpg) no-repeat";
+						panel.style.backgroundPositionX=0;
+						panel.style.backgroundPositionY=-(heights/num)*i+"px";
+					}else if(j==5){
+						//后
+						panel.style.width="100%";
+						panel.style.height="100%";
+						panel.style.transform="translateZ("+(-widths)+"px)";
+						panel.style.background="orange";
+						panel.style.background="url(img/b4.jpg) no-repeat";
+						panel.style.backgroundPositionX=0;
+						panel.style.backgroundPositionY=-(heights/num)*i+"px";
+					}
+					box.appendChild(panel);
+				}
+			scent.appendChild(box)
+			bigbox.appendChild(scent);
+			arr.push(box)
+			}
+			var inita=0;
+			var speeda=90;
+			
+			var t=setInterval(function(){
+				inita+=speeda;
+				for(var i=0;i<arr.length;i++){
+                    arr[i].style.transform="rotateY("+inita+"deg)";
+                }
+			},6000)
+			window.onblur=function(){
+				clearInterval(t);
+			}
+			window.onfocus=function(){
+				t=setInterval(function(){
+				inita+=speeda;
+				for(var i=0;i<arr.length;i++){
+                    arr[i].style.transform="rotateY("+inita+"deg)";
+                }
+			},6000)
+			}
+		}
+	</script>
+</html>

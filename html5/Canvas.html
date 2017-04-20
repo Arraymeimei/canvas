@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/shape.js"></script>
+		<style type="text/css">
+		canvas{
+			background: papayawhip;
+		}
+
+		body,ul,li{
+			margin: 0;padding: 0;list-style: none;	
+		}
+		.canvas{
+			width: 800px;
+			height: 500px;
+			border: 1px solid #666;
+			margin: 10px auto;
+		}
+		.menu{
+			width: 100%;height: 30px;
+			background: #555555;	
+		}
+		.menu li{
+			width:16.666666%;
+		    float: left;
+		    color: #fff;
+		    text-align: center;
+		    line-height: 30px;
+		    cursor: pointer;
+		}
+		.body{
+    		width:100%;height:370px;
+		}
+		.right{
+			position: relative;
+		}
+		.body .tools{
+		    width:118px;
+		    float:left;
+		    border-right:1px solid #ccc;
+		    text-align: center;
+		    box-sizing: border-box;
+		}	
+		.copy{
+			position: absolute;
+			left: 120px;top: 0;width: 680px;height: 470px;
+		}
+		/*.xp{
+			width: 10px;height: 10px;
+		}*/
+	</style>
+	</head>
+	<body>
+		<div class="canvas">
+			<div class="menu">
+	          <li>文件</li>
+	          <li>画图</li>
+	          <li>颜色</li>
+	          <li>类型</li>
+	          <li>线条宽度</li>
+	          <li>擦除</li>
+      		</div>
+
+		<div class="body">
+          <div class="tools">
+                <ul class="option first">
+                    <li>新建</li>
+                    <li>返回</li>
+                    <li>重置</li>
+                    <li>保存</li>
+                </ul>
+                
+              <ul class="option draw">
+                  <li data-role="line">线条</li>
+                  <li data-role="rect">矩形</li>
+                  <li data-role="arc">圆</li>
+                  <li data-role="bian">多边形</li>
+                  <li data-role="jiao">多角形</li>
+                  <li data-role="pen">钢笔</li>
+              </ul>
+              <ul class="option color">
+                  <li>
+                  	边框色
+                      <input type="color" data-role="strokeStyle">
+                  </li>
+                  <li>
+                  	填充色
+                      <input type="color" data-role="fillStyle">
+                  </li>
+
+              </ul>
+
+              <ul class="option style">
+                  <li data-role="stroke">
+                     画线
+                  </li>
+                  <li data-role="fill">
+                     填充
+                  </li>
+
+              </ul>
+
+              <ul class="option lineW">
+                  <li data-role="1">
+                      细
+                  </li>
+                  <li data-role="5">
+                      中
+                  </li>
+                  <li data-role="10">
+                      粗
+                  </li>
+     
+                      <input type="number" placeholder="请输入数字">
+
+
+              </ul>
+
+               <ul class="opt">
+                <li>
+                    <input type="number">
+                </li>
+              </ul>
+          </div>
+          
+			<div class="right">
+				<div class="xp">
+					
+				</div>
+				<div class="copy">
+					
+				</div>
+				<canvas id="" width="680" height="470">
+					
+				</canvas>
+			</div>
+		</div>
+	</body>
+	<script>
+		var canvas=document.getElementsByTagName("canvas")[0];
+        var cobj=canvas.getContext("2d");
+        var copy=document.getElementsByClassName("copy")[0];
+		var shape=new shape(canvas,copy,cobj);
+		
+    /*菜单选项*/
+    $(".menu li").click(function(){
+        var index=$(this).index(".menu li");
+        $(".option").css("display","none").eq(index).css("display","block");
+        $(".menu li").removeClass("active");
+        $(this).addClass("active");
+
+    })
+
+     $(".opt li").click(function(){
+            $(".opt li").css("color","#000").css("text-shadow","none");
+            $(this).css("color","red").css("text-shadow","0 0 3px red");
+
+     })
+     
+    /*画图*/
+    $(".draw li").click(function(){
+    	shap.type=$(this).attr("data-role");
+        if($(this).attr("data-role")=="pen"){
+            shape.pen();
+        }else {
+            shape.type = $(this).attr("data-role");
+
+            if ($(this).attr("data-role") == "bian") {
+                shape.bianNum = prompt("请输入边数", 5);
+            }
+            if ($(this).attr("data-role") == "jiao") {
+                shape.jiaoNum = prompt("请输入角数", 5);
+            }
+            shape.draw();
+        }
+
+    })
+
+    /*画图方式*/
+     $(".style li").click(function(){
+                var val=$(this).attr("data-role");
+                shape.style=val;
+            })
+
+
+    /*设置线条宽度*/
+   
+   /*计算机的输入输出*/
+    $(".lineW li").click(function(){
+        shape.lineWidth=$(this).attr("data-role");
+    })
+
+    $(".lineW input").change(function(){
+
+        shape.lineWidth=$(this).val();
+ 
+    })
+
+//contenteditable  可文本编辑
+//
+
+//  /*设置颜色*/
+// //change当值发生改变，并在失去焦点的时候触发
+// //keydown当键盘按下时事件触发
+// //keyup当键盘抬起时事件触发
+// //oninput当输入的时候事件触发 （h5新属性）
+ 			$(".color li input").change(function(){
+                    shape[$(this).attr("data-role")]=$(this).val();
+            })
+//   /*橡皮*/
+     var xp=$(".xp");
+            console.log(xp);
+            $(".xpOpt").click(function(){
+                shape.xp(xp);
+            })
+            
+         $(".menu a:not(.xpOpt)").click(function(){
+                $(".xp").css("display","none");
+                copy.onmousemove=null;
+                copy.onmousedown=null;
+            })
+            $(".opt:last input")[0].oninput=function(){
+                shape.xpw=$(this).val();
+                shape.xph=$(this).val();
+                $(".xp").css({
+                    width:shape.xpw,
+                    height:shape.xph,
+                })
+            }
+    
+            
+            
+    
+    //文件操作
+// 	$(".new").click(function(){
+//  	if()
+//  })
+//  
+	</script>
+</html>

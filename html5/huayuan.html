@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		
+	</style>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script>
+		var r=20;
+		var x=100;
+		var y=0;
+		var a=0;
+		var body=document.querySelector("body");
+		var box=document.querySelector(".box");
+		setInterval(function(){
+			a=Math.PI/180;
+			newx=x*Math.cos(a)-y*Math.sin(a);
+			newy=x*Math.sin(a)+y*Math.cos(a);
+			var div=document.createElement("div");
+			div.style.cssText="width: 2px;height: 2px;background: paleturquoise;position: absolute;left: 0;top: 0;transform: translate("+(x+120)+"px,"+(y+120)+"px);"
+			body.appendChild(div);
+			box.style.cssText="width: 20px;height: 20px;background: purple;position: absolute;left: 0;top: 0;transform: translate("+(x+100)+"px,"+(y+100)+"px);"
+			x=newx;y=newy
+		},50)
+		
+	</script>
+</html>

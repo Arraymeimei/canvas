@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.lian{
+				width: 200px;
+				height: 200px;
+				border: 2px solid #000;
+				border-radius: 50%;
+				margin: auto;
+				background: -webkit-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+				transition: transform 2s;
+				position: relative;
+				box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+    -webkit-box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+    -moz-box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+				
+			}
+			.yanbox{
+				width: 118px;
+				height: 66px;
+				margin: auto;
+			}
+			.yan{
+				width: 55px;
+				height: 55px;
+				border-radius: 45%;
+				border: 2px solid #000;
+				background: #fff;
+				float: left;
+				transform: scale(1,1.2);
+				margin: 35px auto;
+			}
+			.lianbai{
+				width: 160px;
+				height: 160px;
+				border: 1px solid #000000;
+				border-radius: 50%;
+				transform: scale(1.1,0.9);
+				background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.75,#fff),color-stop(0.83,#eee),color-stop(0.90,#999),color-stop(0.95,#444), to(#000));
+				position: absolute;
+				left:19px;
+				top: 46px;
+			}
+			.bizi{
+				width: 24px;
+				height: 24px;
+				position: relative;
+				border-radius: 50px;
+				background: -webkit-radial-gradient(right top,#fff 5%,#c83c00 55%);
+				border: 2px solid #000000;
+				left: 86px;
+				top: 20px;
+				z-index: 10;
+			}
+			.bizixian{
+				width: 2px;
+				height: 60px;
+				background: #000;
+				margin: auto;
+				z-index: 10;
+				margin-top: 50px;
+				z-index: 9;
+			}
+			.zui{
+				width: 58px;
+			    height: 58px;
+			    border-bottom: 3px solid #333;
+			    border-radius: 120px;
+			    -webkit-border-radius: 120px;
+			    -moz-border-radius: 120px;
+			    margin: auto;
+			    margin-top: -59px;
+			    z-index: 10;
+			    
+			}
+			.huzi1{
+				width: 50px;
+			    height: 1px;
+			    background: #000;
+			    float: left;
+			    margin: 5px auto;
+			    z-index: 10;
+			    margin-top: -35px;
+			    margin-left: 10px;
+			}
+			.huzi2{
+				width: 50px;
+			    height: 1px;
+			    background: #000;
+			    float: right;
+			    margin: 5px auto;
+			    z-index: 10;
+			    margin-top: -35px;
+			    margin-right: 10px;
+			}
+			.huzi3{
+				width: 50px;
+			    height: 1px;
+			    background:#000;
+			    -webkit-transform: rotate(20deg);
+			    float: left;
+			    margin: 5px auto;
+			    z-index: 10;
+			    margin-top: -51px;
+			    margin-left: 10px;
+			}
+			.huzi4{
+				width: 50px;
+			    height: 1px;
+			    background:#000;
+			    -webkit-transform: rotate(20deg);
+			    float: right;
+			    margin: 5px auto;
+			    z-index: 10;
+			    margin-top: -19px;
+			    margin-right: 10px;
+			}
+			.huzi5{
+				width: 50px;
+			    height: 1px;
+			    background:#000;
+			    -webkit-transform: rotate(-20deg);
+			    float: left;
+			    margin: 5px auto;
+			    z-index: 10;
+			    margin-top: -19px;
+			    margin-left: 10px;
+			}
+			.huzi6{
+				width: 50px;
+			    height: 1px;
+			    background:#000;
+			    -webkit-transform: rotate(-20deg);
+			    float: right;
+			    margin: 5px auto;
+			    z-index: 10;
+			    margin-top: -51px;
+			    margin-right: 10px;
+			}
+			.yanzhu{
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #000;
+				text-align: center;
+				margin-left: 25px;
+				margin-top: 25px;
+			}
+			.xiangquan{
+				width: 170px;
+				height: 15px;
+			    border: #000 solid 2px;
+			    background: #ca4100;
+			    background: -webkit-gradient(linear, left top, left bottom, from(#ca4100), to(#800400));
+			    background: -moz-linear-gradient(top, #ca4100, #800400);
+			    border-radius: 10px;
+			    -webkit-border-radius: 10px;
+			    -moz-border-radius: 10px;
+			    position: relative;
+			    margin: auto;
+    			top: 187px;
+    			z-index: 3;
+    			left: 0;
+			}
+			.lingdang{
+				width: 26px;
+			    height: 26px;
+			    border-radius: 50%;
+			    position: absolute;
+			    margin: 5px 71px;
+			    border: 1px solid #000;
+			    z-index: 10;
+				background: -webkit-gradient(linear, left top, left bottom, from(#f9f12a),color-stop(0.5, #e9e11a), to(#a9a100));
+				box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+    -webkit-box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+    -moz-box-shadow: -5px 10px 15px rgba(0,0,0,0.45);
+			}
+			.xian{
+				width: 26px;
+				height: 2px;
+				border: 1px solid #000;
+				margin: 9px -1px;
+				position: absolute;
+			}
+			.yuan{
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: #000;
+				margin: 5px auto;
+			}
+			.yuanxian{
+				width: 2px;
+				height: 8px;
+				background: #000;
+				margin: -9px auto;
+			}
+			.gaoguang{
+				width: 10px;
+				height: 10px;
+				background: rgba(255,255,255,0.3);
+				position: absolute;
+				border-radius: 50%;
+				left: 12px;
+				top: 3px;
+			}
+			.body{
+				position: relative;
+			    width: 156px;
+			    height: 130px;
+			    background: #07beea;
+			    background: -webkit-gradient(linear, right top, left top, from(#07beea),color-stop(0.5, #0073b3),color-stop(0.75,#00b0e0), to(#0096be));
+			    background: -moz-linear-gradient(right, #07beea, #0073b3 50%,#0096be 75%,#00b0e0 ,#0096be 100% ,#333 114%);
+			    border: #333 2px solid;
+			    top: -35px;
+			    left: 0;
+			    margin: auto;
+			    
+			}
+			.zhe1{
+				position: relative;
+			    width: 2px;
+			    height: 30px;
+			    background: #0096be;
+			    top: -183px;
+			    left: -79px;
+			    margin: auto;
+			}
+			.zhe2{
+				position: relative;
+			    width: 2px;
+			    height: 30px;
+			    background: #07beea;
+			    top: -211px;
+			    left: 79px;
+			    margin: auto;
+			}
+			.douwai{
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				background: #fff;
+				margin: auto;
+				position: relative;
+				top: -13px;
+			}
+			.shoul{
+				position: relative;
+			    width: 65px;
+			    height: 44px;
+			    background: -webkit-gradient(linear, left bottom, left top, from(#07beea),color-stop(0.85,#07beea), to(#555));
+			    border: solid 1px #000;
+			    margin: auto;
+			    z-index: -1;
+			    top: -227px;
+			    left: 93px;
+			    transform: rotate(145deg);
+			    -webkit-transform: rotate(-145deg);
+			    -moz-transform: rotate(145deg);
+			    -o-transform: rotate(145deg);
+			    box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+			    -webkit-box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+			    -moz-box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+			}
+			.shour{
+				position: relative;
+			    width: 65px;
+			    height: 44px;
+			    background: #0096be;
+			    border: solid 1px #000;
+			    margin: auto;
+			    z-index: -1;
+			    top: -329px;
+			    left: -90px;
+			    transform: rotate(145deg);
+			    -webkit-transform: rotate(145deg);
+			    -moz-transform: rotate(145deg);
+			    -o-transform: rotate(145deg);
+			    box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+			    -webkit-box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+			    -moz-box-shadow: 5px -7px 10px rgba(0,0,0,0.25);
+			}
+			.left{
+				width: 50px;
+			    height: 50px;
+			    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.5,#fff),color-stop(0.70,#eee),color-stop(0.8,#ddd), to(#999));
+			    border-radius: 50%;
+			    border: 1px solid #000;
+			    position: relative;
+			    margin: auto;
+			    left: -118px;
+			    top: -258px;
+			}
+			.right{
+				width: 50px;
+			    height: 50px;
+			    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.5,#fff),color-stop(0.70,#eee),color-stop(0.8,#ddd), to(#999));
+			    border-radius: 50%;
+			    border: 1px solid #000;
+			    position: relative;
+			    margin: auto;
+			    left: 118px;
+			    top: -357px;
+			}
+			.dou{
+				position: relative;
+			    width: 90px;
+			    height: 90px;
+			    border-radius: 65px;
+			    -webkit-border-radius: 65px;
+			    -moz-border-radius: 65px;
+			    background: #fff;
+			    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.70,#fff),color-stop(0.75,#f8f8f8),color-stop(0.80,#eee),color-stop(0.88,#ddd), to(#fff));
+			    background: -moz-linear-gradient(right top, #fff, #fff 70%,#f8f8f8 75%,#eee 80%,#ddd 88% , #fff);
+			    border: 2px solid #000;
+			    top: -50px;
+			    left: 13px;
+			}
+			.zhe{
+				position: relative;
+			    width: 94px;
+			    height: 66px;
+			    background: #fff;
+			    border-bottom: 2px solid #000;
+			    z-index: 1;
+			    top: 0;
+			    left: 13px;
+			}
+			.tui{
+				position: relative;
+			    width: 14px;
+			    height: 8px;
+			    background: #fff;
+			    background: -webkit-gradient(linear, right top, left bottom, from(#666),color-stop(0.83,#fff), to(#fff));
+			    background: -moz-linear-gradient(right top, #666, #fff 83%, #fff);
+			    top: 2px;
+			    left: 67px;
+			    border-top: 2px solid #000;
+			    border-right: 2px solid #000;
+			    border-left: 2px solid #000;
+			    border-top-right-radius: 40px;
+			    border-top-left-radius: 40px;
+			    -moz-border-radius-topleft: 40px;
+			    -moz-border-radius-topright: 40px;
+			}
+			.foot{
+				position: relative;
+			    width: 206px;
+			    height: 30px;
+			    top: -36px;
+			    left: 0;
+			    /*background: red;*/
+			    margin: auto;
+			}
+			.footl{
+				width: 85px;
+			    height: 25px;
+			    background: #fff;
+			    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.75,#fff),color-stop(0.85,#eee), to(#999));
+			    background: -moz-linear-gradient(right top, #fff,#fff 75%, #eee 85%, #999);
+			    border: solid 2px #333;
+			    border-top-left-radius: 80px;
+			    border-bottom-left-radius: 40px;
+			    border-top-right-radius: 60px;
+			    border-bottom-right-radius: 60px;
+			    -webkit-border-top-left-radius: 80px;
+			    -webkit-border-bottom-left-radius: 40px;
+			    -webkit-border-top-right-radius: 60px;
+			    -webkit-border-bottom-right-radius: 60px;
+			    -moz-border-radius-topleft: 80px;
+			    -moz-border-radius-bottomleft: 40px;
+			    -moz-border-radius-topright: 60px;
+			    -moz-border-radius-bottomright: 60px;
+			    position: relative;
+			    left: 8px;
+			    top: 0;
+			    box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+			    -webkit-box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+			    -moz-box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+			    z-index: -1;
+			}
+			.footr{
+				position: relative;
+			    width: 85px;
+			    height: 25px;
+			    background: #fff;
+			    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.75,#fff),color-stop(0.85,#eee), to(#999));
+			    background: -moz-linear-gradient(right top, #fff,#fff 75%, #eee 85%, #999);
+			    border: solid 2px #333;
+			    border-top-left-radius: 60px;
+			    border-bottom-left-radius: 60px;
+			    border-top-right-radius: 80px;
+			    border-bottom-right-radius: 40px;
+			    -webkit-border-top-left-radius: 60px;
+			    -webkit-border-bottom-left-radius: 60px;
+			    -webkit-border-top-right-radius: 80px;
+			    -webkit-border-bottom-right-radius: 40px;
+			    -moz-border-radius-topleft: 60px;
+			    -moz-border-radius-bottomleft: 60px;
+			    -moz-border-radius-topright: 80px;
+			    -moz-border-radius-bottomright: 40px;
+			    top: -29px;
+			    left: 104px;
+			    box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+			    -webkit-box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+			    -moz-box-shadow: -6px 0px 10px rgba(0,0,0,0.35);
+			    z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="xiangquan">
+				<div class="lingdang">
+					<div class="gaoguang"></div>
+					<div class="xian">
+						<div class="yuan"></div>
+						<div class="yuanxian"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="lian">
+				<div class="lianbai">
+					<div class="bizixian"></div>
+					<div class="zui"></div>
+					<div class="huzi1"></div>
+					<div class="huzi2"></div>
+					<div class="huzi3"></div>
+					<div class="huzi4"></div>
+					<div class="huzi5"></div>
+					<div class="huzi6"></div>
+				</div>
+				<div class="yanbox">
+						<div class="yan">
+							<div class="yanzhu"></div>
+						</div>
+						<div class="yan">
+							<div class="yanzhu"></div>
+						</div>
+				</div>
+				<div class="bizi">
+				</div>
+			</div>
+			
+			<div class="body">
+				<div class="douwai">
+					<div class="zhe"></div>
+					<div class="dou"></div>
+				</div>
+				<div class="tui"></div>
+			</div>
+			<div class="foot">
+				<div class="footl"></div>
+				<div class="footr"></div>
+			</div>
+			<div class="zhe1"></div>
+			<div class="zhe2"></div>
+			<div class="shoul"></div>
+			<div class="left"></div>
+			<div class="shour"></div>
+			<div class="right"></div>
+		</div>
+	</body>
+</html>

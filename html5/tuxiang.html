@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				background: gainsboro;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var canvas=document.getElementsByTagName("canvas")[0];
+				var cobj=canvas.getContext("2d");
+				var one=document.querySelector("img:nth-child(1)");
+//				var two=document.querySelector("img:nth-child(2)");
+				//一共有9个参数
+				//三个参数必填   1.图片资源  2.放置的位置x   3.放置的位置y
+				//吧某一张图片的所有内容放置到画布指定的位置
+				cobj.globalAlpha=0-1;//图片的不透明度
+				cobj.globalCompositeOperation="";
+				cobj.drawImage(one,0,0,800,600,100,100,169,169);
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/b1.jpg" alt="" hidden"/>
+		<canvas id="" width="500" height="500">
+			
+		</canvas>
+	</body>
+</html>

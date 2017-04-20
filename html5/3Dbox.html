@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body{
+			/*perspective: 500px;*/
+		}
+		.inner{
+			margin: auto;
+			position: fixed;
+			width: 200px;height: 200px;
+			top: 0;left: 0;right: 0;bottom: 0;
+			transform-style: preserve-3d;
+			/*transition: transform 5s linear;*/
+			margin-top: 200px;
+			transform-origin: center center -100px;
+		}
+		.inner  div{
+			position: absolute;
+			width: 200px;height: 200px;
+			text-align: center;
+			line-height: 200px;font-size: 20px;
+			opacity: 0.8;
+		}
+		.inner div:nth-child(1){
+			background: palevioletred;
+			transform-origin: left;
+			transform: rotateY(90deg);
+		}
+		.inner div:nth-child(2){
+			background: blueviolet;
+			transform-origin: right;
+			transform: rotateY(-90deg);
+		}
+		.inner div:nth-child(3){
+			background: greenyellow;
+			transform-origin: top;
+			transform: rotateX(-90deg);
+		}
+		.inner div:nth-child(4){
+			background: plum;
+			transform-origin: bottom;
+			transform: rotateX(90deg);
+		}
+		.inner div:nth-child(5){
+			background: deeppink;
+			/*平移的距离*/
+			transform: translateZ(-200px);	
+		}
+		.inner div:nth-child(6){
+			background: yellow;
+			transform: rotateY(0deg);
+		}
+		/*.inner:hover{*/
+			/*向量  矢量   有大小，有方向
+			 
+			 * 标量   有大小无方向
+			 * 单位向量公式计算三维空间基准线
+			 * 
+			 * */
+/*			transform: rotate3d(,120,150,360deg);*/
+		/*}*/
+	</style>
+	<script>
+	window.onload=function(){
+		var clientX=document.documentElement.clientWidth;
+		var clientY=document.documentElement.clientHeight;
+		var inner=document.querySelector(".inner");
+		document.onmousedown=function(e){
+			var cx=e.clientX;
+			var cy=e.clientY;
+			document.onmousemove=function(e){
+				var movex=e.clientX;
+				var movey=e.clientY;
+				var x=movex-clientX/2;
+				var y=movey-clientY/2;
+				console.log(y)
+				var len=Math.sqrt((movex-cx)*(movex-cx)+(movey-cy)*(movey-cy)); 
+				//角度值=移动的距离     
+				inner.style.transform="rotate3d("+(-y)+","+x+",0,"+len+"deg)"
+			}
+			document.onmouseup=function(){
+				document.onmouseup=null;
+				document.onmousemove=null;
+			}
+		}
+	}
+		
+	</script>
+	<body>
+			<div class="inner">
+				<div class="box1"></div>
+				<div class="box2"></div>
+				<div class="box3"></div>
+				<div class="box4"></div>
+				<div class="box5"></div>
+				<div class="box6"></div>
+			</div>
+	</body>
+</html>

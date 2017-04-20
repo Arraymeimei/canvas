@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				width: 100%;height: 100%;
+				overflow: hidden;
+				background: #000000;
+				padding: 0;margin: 0;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+			var clientW=document.documentElement.clientWidth;
+			var clientH=document.documentElement.clientHeight;
+			var arr=[];
+ 			setInterval(function(){
+			 	document.body.style.transition="transform 2s linear";
+			 	document.body.style.transform="rotate("+30*Math.sin(Math.floor(Math.random()*3)*180)+"deg)";
+ 			 },2000)
+ 			for(var i=0;i<100;i++){
+				var div=document.createElement("div");
+ 				div.style.cssText="width:2px;height:4px;position:absolute;left:"+(50+(clientW-100)*Math.random())+"px;top:-100px;background:#fff";
+				div.style.transition="transform 3s linear "+3*Math.random()+"s";
+				//移动样式   持续时间   运动形式   延迟时间
+ 				document.body.appendChild(div);
+				arr.push(div);
+			}
+ 			setTimeout(function(){
+ 				for(var i=0;i<arr.length;i++){
+					arr[i].style.transform="translate(0,"+clientH+"px)";
+					arr[i].addEventListener("webkitTransitionEnd",function(){
+ 						this.style.transition="none";
+ 						this.style.transform="translate(0,-100px)";
+ 						var that=this;
+ 						setTimeout(function(){
+ 							that.style.transform="translate(0,"+clientH+"px)";
+ 							that.style.transition="transform 3s linear "+3*Math.random()+"s";
+ 						},0)
+ 					})
+ 				}
+ 			},0)
+ 			
+ 		}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

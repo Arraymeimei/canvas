@@ -1,0 +1,98 @@
+@cols:12;
+@num1:1200px;
+@num2:900px;
+/* 流式布局container-fuilt与固定布局container*/
+.container{
+  &-fuilt{
+    width: 100%;margin: auto;
+    .clear();
+  }
+  &-fuilt>.row{
+    width: 100%;
+    .clear();
+  }
+  &{
+    width: 600px;margin: auto;
+    .clear();
+  }
+  &>.row{
+    width: 100%;
+    .clear();
+  }
+}
+/*小屏*/
+.for(s);
+.col-l-hide{
+  display: block;
+}
+.col-m-hide{
+  display: block;
+}
+.col-s-hide{
+  display: none;
+}
+/*中屏*/
+@media screen and (min-width: @num2){
+  .container{
+    width: @num2;
+  }
+  .col-s-hide{
+    display: block;
+  }
+  .col-l-hide{
+    display: block;
+  }
+  .col-m-hide{
+    display: none;
+  }
+  .for(m);
+}
+/*大屏*/
+@media screen and (min-width: @num1){
+  .container{
+    width: @num1;
+  }
+  .col-s-hide{
+    display: block;
+  }
+  .col-m-hide{
+    display: block;
+  }
+  .col-l-hide{
+    display: none;
+  }
+  .for(l);
+}
+
+.for(@type,@i:1) when (@i<=@cols){
+  .container .row .col-@{type}-@{i}{          //固定布局
+    width:@i/@cols*100%;
+    position: relative;
+    float: left;
+  }
+  .container-fuilt .row .col-@{type}-@{i}{     //流式布局
+    width:@i/@cols*100%;
+    position: relative;
+    float: left;
+  }
+  .container .row .col-@{type}-offset-@{i}{   //偏移
+    margin-left: @i/@cols*100%;
+  }
+  .container-fuilt .row .col-@{type}-offset-@{i}{   //偏移
+    margin-left: @i/@cols*100%;
+  }
+  .container .row .col-@{type}-push-@{i}{   //位置变化  相对定位  向左移动
+    left: @i/@cols*100%;
+  }
+  .container .row .col-@{type}-pull-@{i}{   //位置变化  相对定位  向右移动
+    right: @i/@cols*100%;
+  }
+  .for(@type,@i:@i+1)
+}
+.clear(){
+  &:before,&::after{
+    content:"";
+    clear: both;
+    display: block;
+  }
+}

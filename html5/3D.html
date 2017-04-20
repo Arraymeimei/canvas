@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			灭点
+			消失点：人视野看到最远的地方
+			
+		-->
+		<style>
+		html{
+			width: 100%;height: 100%;
+		}
+		body{
+			margin: 0;padding: 0;width: 100%;height: 100%;overflow: hidden;
+		}
+		.scene{
+			width:100%;height:100%;position: absolute;
+    		left:0;top:0;
+    		transform: scale(0.6,0.6);
+		}
+		.room{
+			width: 100%;height: 100%;position: relative;
+			backface-visibility: visible;
+			transform-style: preserve-3d;
+			transition:transform 3s linear;
+		}
+		.room>div{
+			position: absolute;left: 0;top:0;
+		}
+		/*房顶*/
+		.ding{
+			background: teal;
+			transform-origin: top;
+			transform: rotateX(90deg);
+			box-shadow: 0 0 200px #999 inset;
+			background-image: url(img/天花板.jpg);
+		}
+		/*墙1*/
+		.left{
+			width: 100%;height: 100%;
+			background: palevioletred;
+			transform-origin: left;
+			transform: rotateY(-90deg);
+			box-shadow: 0 0 200px #999 inset;
+			background-image: url(img/bizhi.jpg);
+		}
+		/*墙2*/
+		.right{
+			width: 100%;height: 100%;
+			background: plum;
+			transform-origin: right;
+			transform: rotateY(90deg);
+			box-shadow: 0 0 200px #999 inset;
+			background-image: url(img/bizhi.jpg);
+		}
+		/*底板*/
+		.di{
+			background: blueviolet;
+			transform-origin: bottom;
+			transform: rotateX(-90deg);
+			box-shadow: 0 0 200px #999 inset;
+			background-image: url(img/diban.jpg);
+		}
+		/*初始*/
+		.panel{
+			width: 100%;height: 100%;
+			background: paleturquoise;
+			box-shadow: 0 0 200px #999 inset;
+			background-image: url(img/bizhi.jpg);
+		}
+		/*双击*/
+		.inner{
+			width: 100%;height: 100%;
+			background: orangered;
+			box-shadow: 0 0 200px #999 inset;
+			background-image: url(img/bizhi.jpg);
+			
+		}
+		/*.room:hover{
+			transform:rotate3d(0,1,0,360deg);
+		}*/
+		</style>
+		
+	</head>
+<body>
+	<div class="scene">
+		<div class="room">
+			<div class="ding"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="di"></div>
+			<div class="panel"></div>
+			<div class="inner"></div>
+		</div>
+	</div>
+</body>
+	<script>
+		var w=document.documentElement.clientWidth;
+		console.log(w)
+		var h=document.documentElement.clientHeight;
+		var inner=document.querySelector(".inner");
+		var room=document.querySelector(".room");
+		var scene=document.querySelector(".scene");
+		var ding=document.querySelector(".ding");	
+		var panel=document.querySelector(".panel");
+		var di=document.querySelector(".di");
+		scene.style.perspective="850px";
+		di.style.top=-(w-h)+"px";
+		ding.style.width=di.style.width=ding.style.height=di.style.height=w+"px";
+		inner.style.transform="translateZ("+w+"px)";
+		room.style.transformOrigin="center center "+w/2+"px";
+		panel.ondblclick=function(){
+			room.style.transform="rotate3d(0,1,0,180deg)";
+		}
+		//鼠标拖动
+		document.onmousedown=function(e){
+			var cx=e.clientX;
+			console.log(cx)
+			var cy=e.clientY;
+			document.onmousemove=function(e){
+				var movex=e.clientX;
+				var movey=e.clientY;
+				var x=movex-cx;
+				var y=movey-cy;
+				var len=Math.sqrt((movex-cx)*(movex-cx)+(movey-cy)*(movey-cy)); 
+				//角度值=移动的距离     
+				room.style.transform="rotateY("+len+"deg)"
+//				
+			}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+	</script>
+</html>

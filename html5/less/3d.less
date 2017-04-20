@@ -1,0 +1,18 @@
+@initx:100;
+@num:100;
+.for(@i:0,@x:50,@y:0) when(@i<=@num){
+  @a:(360/@num)*pi()/180;
+  @selector:100%/@num*@i;
+  @newx:@x*cos(@a)-@y*sin(@a);
+  @newy:@x*sin(@a)+@y*cos(@a);
+  @{selector}{
+    transform:translate((@initx*1+@newx*1)*1px,(@initx*1+@newy*1)*1px,)
+  }
+  .for(@i+1,@newx,@newy)
+}
+@keyframes demo{
+  .for()
+}
+.circle{
+  animation-name: demo;
+}
